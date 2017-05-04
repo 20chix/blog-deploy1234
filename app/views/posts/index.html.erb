@@ -1,0 +1,67 @@
+
+  
+  <div class= "container">
+  	
+
+ <div class="col-sm-10">
+
+
+	<div class="row">
+
+		<div class="span4 well" style="padding-bottom:5">
+<kbd class="countdown" >150 characters</kbd>
+
+
+<%= form_for @post, post: {controller: "new", action: "create" } do |f| %>
+<br>
+
+  <%= f.text_area :text ,:maxlength => 150, :allow_blank => false , class: 'form-control message',  placeholder: 'Insert your text here', rows:'6', required: true %>
+  <%= f.submit  :class => 'btn btn-primary btn-lg btn-block' %>
+<% end %>
+
+
+</div>
+</div>
+</div>
+
+
+
+  </div>
+
+
+
+	
+<% @posts.each do |post| %>
+
+
+<samp>
+
+<div class="span4 well " style="padding-bottom:1, white-space:pre-line;">
+
+
+
+ <%=  simple_format post.text %> <br></samp>
+  
+
+
+<kbd><%= time_ago_in_words post.created_at %> ago</kbd>
+
+<div class="pull-right">
+
+
+
+
+
+<%= link_to "Delete", post , class: 'close' , :method => :delete %>
+
+</div>
+</div>
+
+
+  <% end %>
+
+
+
+
+
+

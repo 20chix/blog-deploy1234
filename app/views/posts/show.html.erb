@@ -1,0 +1,16 @@
+<h1> <%= @post.title %> </h1>
+
+<br>
+<br>
+<%= @post.text %> 
+
+
+
+<p>
+<br>
+<br>
+<%= link_to "Back", posts_path,  class: 'btn btn-primary btn-lg btn-block'  %>
+
+<%= link_to "Delete", @post,  class: 'btn btn-danger btn-lg btn-block' , :method => :delete, :confirm => "Are You sure?" %>
+
+</p>

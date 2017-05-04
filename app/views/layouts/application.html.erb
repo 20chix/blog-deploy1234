@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+
+  <body>
+      <div class="container"> 
+       <p class="lead">Hadi Elmekawi</p>
+        <strong><h1>Welcome to MadeTech Blog</h1></strong>
+
+<br>
+
+  
+
+
+
+   <div class="col-sm-10 ">
+
+
+
+<div id="flashes">
+
+  <% if flash[:notice] %>
+  <p class="bg-info" id="flash_notice">
+    <%= flash[:notice] %>
+    	
+
+    </p>
+    <%= javascript_tag "$('#flash_notice').effect('highlight',{},1000);" %>
+  <% end %>
+
+  <% if flash[:errors] %>
+  <p class="bg-info" id="flash_errors">
+
+    <%= flash[:errors] %></p>
+    <%= javascript_tag "$('#flash_errors').effect('highlight',{},1000);" %>
+
+  <% end %>
+
+  <% flash[:error] = flash[:errors] = flash[:notice] = nil %>
+
+</div>
+
+
+   	<%= yield %>
+
+
+
+<script type="text/javascript">
+
+function updateCountdown() {
+    // 140 is the max message length
+    var remaining = 150 - jQuery('.message').val().length;
+    jQuery('.countdown').text(remaining + ' remaining');
+}
+
+jQuery(document).ready(function($) {
+    updateCountdown();
+    $('.message').change(updateCountdown);
+    $('.message').keyup(updateCountdown);
+});
+
+  $(document).ready(function(){
+    setTimeout(function(){
+    $('#flash_notice').fadeOut();
+    }, 2000);
+  })
+
+$(document).ready(function(){
+    setTimeout(function(){
+    $('#flash_errors').fadeOut();
+    }, 2000);
+  })
+
+
+
+
+
+  
+</script>
+
+
+
+   </div>
+    
+
+    </div>
+
+
+
+  </body>
+
+</html>

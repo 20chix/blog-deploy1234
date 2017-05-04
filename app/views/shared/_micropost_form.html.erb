@@ -1,0 +1,14 @@
+<% content_for :head do %>
+ <script type="text/javascript">
+   $(document).ready(function() {
+ 
+      $("#micropost_content").keyup(function() {
+        var counter = $("#counter");
+        var charsRemaining = 150 - $(this).val().length;
+        counter.text(charsRemaining);
+        counter.css('color', (charsRemaining < 0) ? 'red' : 'black');
+      });
+ 
+    });
+ </script>
+<% end %>
