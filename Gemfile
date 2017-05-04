@@ -40,16 +40,12 @@ group :development, :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
 end
 
-group :test do
-  gem 'shoulda-matchers', '~> 3.1'
+group :development do 
+   gem 'sqlite3'    #gem to use in development environment
 end
 
-group :devlopment, :test do
-  gem 'sqlite3'
-end
-
-group :production do
-  gem 'pg'
+group :production do 
+  gem 'pg'         #gem to use in production environment
 end
 
 
